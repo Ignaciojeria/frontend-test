@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
   public isInGame: boolean;
 
+  public score: Array<any>;
 
   public doors: Array<any>;
 
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.step = 1;
+    this.setScore();
   }
 
   public play(door?: any) {
@@ -38,10 +40,8 @@ export class AppComponent implements OnInit {
           break;
         }
         case 3: {
-          if (door.gift === undefined) {
-            this.playThirdStep(door);
-            this.step = 1;
-          }
+          this.playThirdStep(door);
+          this.step = 1;
           break;
         }
       }
@@ -111,6 +111,14 @@ export class AppComponent implements OnInit {
 
       this.sortById(this.doors);
 
+      this.setScore();
+
+    });
+  }
+
+  private setScore() {
+    this.gameService.getScore().subscribe((data: any) => {
+      this.score = data;
     });
   }
 

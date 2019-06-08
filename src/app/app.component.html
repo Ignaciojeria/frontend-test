@@ -1,3 +1,6 @@
+
+
+
 <div style="max-width: 700px; margin: auto;  ">
 
   <h1 style="text-align: center;">
@@ -38,6 +41,10 @@
        style="display: flex; justify-self: center; align-items: center; justify-content: center; padding-top: 40px;">
     <button (click)="play()"> Jugar!</button>
   </div>
+
+  <p *ngFor="let item of score" >
+    {{item}}
+  </p>
 
 
 </div>

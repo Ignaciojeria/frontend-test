@@ -29,4 +29,9 @@ export class GameService {
     return this.http.post<any>(GameService.domain + '/chooseDoorAfterOpportunityWasGiven', chooseDoorRequest, httpOptions);
   }
 
+  public getScore(): Observable<any> {
+    return this.http.get(GameService.domain + '/game/getScore', httpOptions);
+  }
+
+
 }
