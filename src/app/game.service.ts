@@ -33,5 +33,13 @@ export class GameService {
     return this.http.get(GameService.domain + '/game/getScore', httpOptions);
   }
 
+  public findAllGames(pageRequest: number): Observable<any> {
+    return this.http.get(GameService.domain + '/game/findAll/' + pageRequest, httpOptions);
+  }
+
+  public getGamePages(): Observable<any> {
+    return this.http.get(GameService.domain + '/game/countPages/', httpOptions);
+  }
+
 
 }

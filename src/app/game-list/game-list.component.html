@@ -1,0 +1,34 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Gift</th>
+    <th scope="col">Choise</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let game of gameList">
+    <th scope="row">{{game.GAME.id}}</th>
+    <td>{{game.GAME.door.gift}}</td>
+    <td>{{game.GAME.choise}}</td>
+  </tr>
+  </tbody>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li (click)="clickOnPreviusPage()" class="page-item">
+        <button class="page-link">Previous</button>
+      </li>
+      <li (click)="clickOnSomePage(page)" *ngFor="let page of pages" class="page-item">
+        <button class="page-link">{{page+1}}</button>
+      </li>
+      <li (click)="clickOnNextPage()" class="page-item">
+        <button class="page-link">Next</button>
+      </li>
+    </ul>
+  </nav>
+  <button class="btn btn-primary" (click)="clickOnHome()"> Inicio</button>
+
+
+</table>
